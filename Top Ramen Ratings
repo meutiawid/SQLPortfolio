@@ -1,24 +1,6 @@
 -- The ramen rating data collection comes from kaggle.com/datasets/ankanhore545/top-ramen-ratings-2022 
 -- containing reviews of various ramen from all over the world
 
--- Create table and Loaded data into SQL
-CREATE TABLE TOPRAMENRATINGS (REVIEW int, 
-							  BRAND VARCHAR(255),
-							  VARIETY VARCHAR(255),
-							  STYLE VARCHAR(255),
-							  COUNTRY VARCHAR(255),
-							  STARS VARCHAR(255)
-							 )
-
--- Checked the first ten rows
-SELECT *
-FROM TOPRAMENRATINGS
-LIMIT 10
-
--- Checked Total Data
-SELECT COUNT (*) AS TOTAL_DATA
-FROM TOPRAMENRATINGS
-
 -- DATA CLEANING --
 -- Identifying Duplicate Entries and Reviews
 SELECT BRAND,
@@ -71,7 +53,7 @@ WHERE STARS LIKE '%/%'
 -- 	(SELECT BRAND,
 -- 			COUNT(VARIETY) AS VARIETY_COUNT
 -- 		FROM TOPRAMENRATINGS
--- 		GROUP BY BRAND) AS SUBQUERY
+-- 		GROUP BY BRAND) AS VAR_COUNT_BY_BRAND
 -- Top-rated Brand Ramen
 SELECT BRAND,
 	ROUND(AVG(CASE
